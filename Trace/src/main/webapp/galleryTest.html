@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/media.css">
+
+        <link href="css/googlemap.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+<style>
+body{
+background-color: #fff;
+}
+
+  input[type="file"] {  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+ .w3-btn {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 6px 16px;
+    margin-left : 10px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    transition: .2s ease-out;
+    cursor: pointer;
+    white-space: nowrap;
+   
+}   
+
+a.w3-btn:hover, a.w3-btn:active {
+    background-color: #2A5577;
+    color: #FFFFFF;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+a.w3-btn, a.w3-btn:link, a.w3-btn:visited {
+    color: #FFFFFF;
+    background-color: #5FB6F9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+
+textarea{
+   float:left;
+}
+
+.media-left, .media>.pull-left, .childmedia>.pull-left, .childmedia2>.pull-left{
+    padding-right: 10px;
+
+}
+
+.media-body, .media-left, .media-right {
+    display: table-cell;
+    vertical-align: top;
+}
+/* //////////////////// */
+.media-right, .media>.pull-right, .childmedia>.pull-right, .childmedia2>.pull-right {
+    padding-left: 10px;
+}
+
+.media-body {
+    width: 500px;
+    overflow: hidden;
+}
+
+.media-body #temp{
+   overflow: hidden;
+}
+
+#ee, #dd, #dddd{
+float: right;
+cursor: pointer;
+vertical-align: top;
+
+}
+
+#ee{
+margin-left: 5px;
+}
+
+p1{
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+     
+.go-top{
+        z-index: 15000;
+        display:block;
+        width:40px;
+        height:40px;
+        line-height:35px;
+        text-align:center;
+        font-size:40px;
+        position:fixed;
+        bottom:10px;
+        right:20px;
+        -webkit-transition: all 0.2s ease;
+          -moz-transition: all 0.2s ease;
+          -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+        background-color:#404040;
+        color:#FFFFFF;
+        text-decoration:none;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        border-radius:5px;
+      }
+
+      .go-top.show{
+        bottom:20px;
+      }
+
+      .go-top:hover{
+        background-color:#5DBA9D;
+        color:#FFFFFF;
+      }
+
+      .wrapper{
+        margin:auto;
+        /*width:700px;*/
+        text-align:left;
+      }
+      
+
+
+    html,body{
+    background-color:#F6F6F6;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        /* overflow: hidden; */
+        }
+    
+    section{
+    overflow: hidden;
+    }
+    
+    aside{
+    position:relative;
+    margin-top:20px;
+    
+    width: 100%;
+    height: 100%;
+    
+    }
+    
+    .col-xs-6{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right:1.5%;
+    margin-left:1.5%;
+    
+    position: relative;
+    border: 3px solid #fff;
+    text-align:justify;
+    display: inline;
+    float:left;
+    padding:0px;
+   cursor: pointer;
+   
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    
+    .col-xs-6:hover{
+    
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    
+    .col-xs-6 img{
+
+    float:left;
+    margin:0;
+    }
+
+    
+    footer{
+    background-color: #EBE8FF;
+    margin-bottom: 0;
+    margin-left:0;
+    margin-right:0;
+    }
+    
+    .btn btn-primary{
+    position: relative;
+    width:100%;
+    }
+    
+    .calendar{
+    margin-top: 20px;
+    text-align: center;
+    }
+    
+    
+    
+/*   ////////////////////////////////--scroll   */
+    
+/* ///////////////////////////////////////////////////////////////////////////////////////  */
+
+   @media all and (max-width:299px) {
+    h2{
+    margin-top:2px;
+    font-size: 12px;   
+    color: purple;
+    }
+    
+    .col-xs-6{
+      width:30%;
+      height: auto;
+    }
+    
+    .col-xs-6 img{
+    
+    height: 70px;
+    }
+    }
+    
+    @media all and (min-width:300px) and (max-width:600px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: maroon;
+    }
+    
+    .col-xs-6{
+      width:43%;
+      height: auto;
+      margin-left :15px;
+    }
+    .col-xs-6 img{
+    height: 130px;
+    }
+    }
+    
+    @media all and (min-width:601px) and (max-width:768px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: gray;
+    }
+    
+    .col-xs-6{
+      width:22%;
+    }
+    .col-xs-6 img{
+    height: 130px;
+    }
+    }
+    
+    @media all and (min-width:769px) and (max-width:992px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: red;
+    }
+    
+    .col-xs-6{
+      width:17%;
+    }
+    
+    .col-xs-6 img{
+    height: 150px;
+    }
+    }
+    
+    @media all and (min-width:993px) and (max-width:1200px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: blue;
+    }
+    
+    .col-xs-6{
+      width:16.5%;
+      
+    }
+    .col-xs-6 img{
+    height: 160px;
+    }
+    }
+    
+    @media all and (min-width:1201px) {
+    h2{
+    margin-top:2px;
+    font-size: 25px;  
+    color: green;
+    }
+    
+    .col-xs-6{
+      width:13.5%;
+    }
+    
+    .col-xs-6 img{
+    height: 180px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<a href="#myAnchor" class="go-top fa fa-angle-double-up fa-5x"></a>           
+          <div class="wrapper" id="myAnchor" >      
+
+
+        <!--[if lte IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+        <header role="banner">
+            <nav role="navigation" class="navbar navbar-default">
+            
+              <div class="container">
+              
+                <div class="navbar-header">
+              
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Bootstrappin'" width="120"></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="index.html">
+                        <span class="fa fa-home"></span> Home
+                    </a></li>
+                    <li><a href="write.html">
+                        <span class="fa fa-pencil-square-o"></span> Write
+                    </a></li>
+                     <li class="active"><a href="gallery.html">
+                        <span class="fa fa-picture-o"></span> Gallery
+                    </a></li>
+                    <li><a href="#">
+                        <span class="fa fa-envelope"></span> Contact
+                    </a></li>
+                  </ul>
+                    <ul class="nav navbar-nav navbar-right" clear="both">
+
+        <li><a href="#"><span class="fa fa-sign-in"></span> Register</a></li>
+          <li><a href="#" id="myBtn"><span class="fa fa-power-off"></span> Login</a></li>
+                </div><!--/.nav-collapse -->
+              </div><!--/.container -->
+            </nav>
+        </header>
+     
+      <div class="calendar">
+            <p><i class="fa fa-calendar">: <input type="text" id="datepicker"></p></i>
+      </div>
+            
+    
+     
+    
+    <aside id="list" >           
+         <div class="col-xs-12"> 
+           <div class="row" id="addTr" >
+           </div>
+         </div>
+    </aside>
+   
+    
+    
+         
+           
+        
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+		<script src="js/bootstrap/modal.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+      	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      	<script type="text/javascript" src="../js/handlebars.min.js"></script>
+      	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript">
+           
+           /* $(function() {
+               // run the currently selected effect
+               function runEffect() {
+                 // get effect type from
+                 var selectedEffect = $( "#gallery" ).val();
+            
+                 $( ".col-xs-6" ).slideToggle("slow");
+               };
+            
+               // set effect from select menu value
+               $(window).ready(function() {
+                 runEffect();
+               });
+            
+                $( ".col-xs-6" ).hide(  );
+             });  */
+           
+$(document).ready(function(){
+	$(".col-xs-6")
+	.slideUp(250)
+    .slideDown(500);
+});
+                 
+                 
+//////////////////calendar////////////////////   
+$(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+});
+//////////////////calendar////////////////////   
+
+$(function() {
+	$.getJSON('/trace/listTrace', function(obj){
+		var div;
+		var templateSource = $("#boardTrTemplate").html();
+        var template = Handlebars.compile(templateSource);
+		div = template(obj);
+        console.log(div);
+        $(div).appendTo("#addTr")    
+    });
+}); 
+         
+         
+         
+/*Add class when scroll down*/
+$(window).scroll(function(event){
+     	var scroll = $(window).scrollTop();
+        	if (scroll >= 50) {
+              	$(".go-top").addClass("show");
+            } else {
+                $(".go-top").removeClass("show");
+            }
+         });
+            /*Animation anchor*/
+$('.go-top').click(function(){
+                $('html, body').animate({
+                    scrollTop: $( $(this).attr('href') ).offset().top
+                }, 500);
+ });
+            
+
+$(document).on("click", "#create", function(){
+ var test = $(this).prev().prev().attr('class');
+ console.log(test);
+
+	   $.ajax({
+            type:"POST",
+            async:false,
+            headers : {
+               "Accept" : "application/json",
+               "Content-Type" : "application/json"
+            },
+            data: JSON.stringify({
+               comm : $(this).prev().val(),
+               traceNo : $(this).attr('value')
+            }),
+            url:"/reply/jsonAddReply",
+            dataType:"json",
+            success:function(data){
+            	alert("왔다");
+            	console.log(data);
+            	var div;
+            	var templateSource = $("#replyTemplate").html();
+                var template = Handlebars.compile(templateSource);
+                
+                div = template(data);
+                
+                $(div).appendTo("."+test);
+                
+                //$(div).appendto(.modal0)
+                
+                $("#texteditor").val('').empty(); 
+            
+            }
+         });    
+});
+
+
+
+</script> 
+
+
+
+              
+<script id="boardTrTemplate" type="text/x-handlebars-template">
+            {{#list}}
+   
+            <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+           
+
+        <!-- Trigger the modal with a button -->
+         <td><img src="traceupload/{{oriImgName}}"   width="100%" height="225px" data-toggle="modal" data-target="#myModal{{@key}}"></td>
+      
+          </div>
+
+
+        <!-- Modal -->
+  
+        <div class="modal fade"  id ="myModal{{@key}}" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+        </div>
+        
+
+
+        <div class="modal-body">
+                
+               <td><img src="traceupload/{{oriImgName}}"  id="test"  width="100%" height="500px"></td>
+
+        </div>
+		
+        
+        
+        <div class="modal-footer">
+        			 
+						<div class="modal{{@key}}" margin-top="100px"></div>
+          				<textarea id="texteditor" style="width: 80%; height:30px" rows="2"></textarea>
+						<a target="_blank" class="w3-btn" id="create" value="{{traceNo}}" >등록</a>
+						
+        			
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+{{/list}}
+</script> 
+
+ <script id="replyTemplate" type="text/x-handlebars-template">
+            {{#rlist}}
+            <div class='abab'>
+            <div class='media'>
+            <div class='media-left'>
+            <a href='#'><img class='media-object' src="traceupload/{{replyMember.oriImgName}}" alt='4545' width='45px' height='45px'></a>
+            </div>
+            <div class='media-body'>
+            <p1 class='media-heading'>{{id}}<p3 id='ee' >삭제</p3><p4 id='dd'>답글달기</p4></p1>
+            <p2 id='temp'>{{comm}}</p2>
+            </div>
+            </div>
+            </div>
+            {{/rlist}}      
+</script>
+         
+
+    
+       
+            
+    </body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Trace</title>
+    
+   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/main.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    
+    
+    <style type="text/css">
+    
+    header{
+    margin-bottom: 10%;
+    }
+    
+    .form-module input[type='text'], #pw{
+       margin: 0 0px;
+    }  
+    
+     input[type="file"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+         margin: -1px;
+         overflow: hidden;
+         clip:rect(0,0,0,0);
+        border: 0;
+   }
+   
+   #imim{
+      text-align: center;
+      margin-bottom : 5px;
+   }
+   
+   .images{
+      text-align: center;
+      margin-bottom : 15px;
+      margin-left : 10px;
+   }
+   
+   .form-module {
+   margin-bottom: 10%;
+   }
+   
+   /* #idfeedback{
+   color: 
+   } */
+    
+    </style>
+    
+   </head>
+   <body>
+
+    
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Pen Title-->
+ <header role="banner">
+            <nav role="navigation" class="navbar navbar-default">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Bootstrappin'" width="120"></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">
+                        <span class="fa fa-home"></span> Home
+                    </a></li>
+                    <li><a href="write.html">
+                        <span class="fa fa-pencil-square-o"></span> Write
+                    </a></li>
+                    <li><a href="gallery.html">
+                        <span class="fa fa-picture-o"></span> Gallery
+                    </a></li>
+                    <li><a href="#">
+                        <span class="fa fa-envelope"></span> Contact
+                    </a></li>
+                  </ul>
+                    <ul class="nav navbar-nav navbar-right" clear="both">
+
+        <li><a href="#"><span class="fa fa-sign-in"></span> Register</a></li>
+          <li><a href="#" id="myBtn"><span class="fa fa-power-off"></span> Login</a></li>
+                </div><!--/.nav-collapse -->
+              </div><!--/.container -->
+            </nav>
+        </header>
+        
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <div class="tooltip">Sign Up</div>
+  </div>
+  <div class="form">
+    <h2>Login to your account</h2>
+    <form onsubmit="return false;">
+      <input type="username" placeholder="Username" id="logid"/>
+      <input type="password" placeholder="Password" id="logpassword"/>
+      <button id="login-submit">Login</button>
+    </form>
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+    <form onsubmit="return false;">
+      <input type="text" placeholder="UserID" id="id"/><div id="idfeedback" style="margin-top:5px; font-size:5pt; color:#BDBDBD"></div></br>
+      <input type="password" placeholder="Password" id="pw"/><div id="pwfeedback" style="margin-top:5px; font-size:5pt; color:#BDBDBD"></div></br>
+      <input type="text" placeholder="UserName" id="name"/><div id="nmfeedback" style="margin-top:5px; font-size:5pt; color:#BDBDBD"></div></br>
+      <input type="text" placeholder="Email Address" id="email"/><div id="emfeedback" style="margin-top:5px; font-size:5pt; color:#BDBDBD"></div></br>
+      <input type="text" placeholder="Phone Number" id="ph"/><div id="phfeedback" style="margin-top:5px; font-size:5pt; color:#BDBDBD"></div></br>
+      <div id="imim"><label for="fileupload" class="fa fa-camera-retro"></label><input id="fileupload" type="file" ></div><div class="images"></div>
+                     
+       
+      <button id="register-submit">Register</button>
+      
+    </form>
+   
+  </div>
+  <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+</div>
+
+
+
+<!-- javasctipt는 여기에 추가하거라  -->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="js/index.js"></script>
+<script src="js/vendor/jquery.ui.widget.js"></script>      
+<script src="js/jquery.fileupload.js"></script>
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="js/vendor/respond.min.js"></script>
+<script src="js/plugins.js"></script>
+
+
+
+<!-- function은 여기에 추가해라 -->
+<script>
+var addMemberSucess=false;
+
+/*아이디 줄복 체크  */
+$("#id").change(function(){
+   var id = document.getElementById('id');
+   var idms = document.getElementById('idfeedback');
+   if(id.value.length < 5){
+      idms.textContent='아이디를 5자 이상 입력해 주세요';
+   }else{
+      idms.textContent='';
+      fncIdCheck();
+   }
+});
+
+function fncIdCheck(){
+   $.ajax({
+      type:"POST",
+      async: false,
+      headers : 
+      {
+         "Accept" : "application/json",
+         "Content-Type" : "application/json"
+      },
+      data: JSON.stringify
+      ({
+    	  memberId:$("#id").val()
+      }),
+      url:"/member/getJsonMember",
+      dataType:"json",
+      success : function(data){
+         if(data.member == null){         
+            //alert("사용 할 수 있는 아이디 입니다");
+            $("#idfeedback").text("사용 할 수 있는 아이디 입니다.").css("color","blue");
+            return false;
+         }else{
+            //alert("사용 불가능 아이디 입니다.");
+            $("#idfeedback").text("사용 불가능 아이디 입니다.").css("color","#F15F5F");
+            return false;
+         }
+      }
+   });
+}
+
+$("#pw").change(function(){
+   var pw = document.getElementById('pw');
+   var pwms = document.getElementById('pwfeedback');
+   if(pw.value.length < 8){
+      pwms.textContent='패스워드를 8자 이상 입력해 주세요';
+   }else{
+      pwms.textContent='';
+   }
+});
+
+$("#name").change(function(){
+   var name = document.getElementById('name');
+   var namems = document.getElementById('nmfeedback');
+   if(name.value.length < 2){
+      namems.textContent='이름을 다시 입력해주세요';
+   }else{
+      namems.textContent='';
+   }
+});
+
+$("#email").change(function(){
+   var email = document.getElementById('email');
+   var emailms = document.getElementById('emfeedback');
+   if(email.value.length < 5){
+      emailms.textContent='이메일을 다시 입력해주세요';
+   }else{
+      emailms.textContent='';
+   }
+});
+
+$("#ph").change(function(){
+   var ph = document.getElementById('ph');
+   var phms = document.getElementById('phfeedback');
+   if(ph.value.length < 10){
+      phms.textContent='핸드폰 번호를  다시 입력해주세요';
+   }else{
+      phms.textContent='';
+   }
+});
+
+/* 선택한 사진 보여주기  */
+$(function(){
+          $("#fileupload").change(function () {
+              if (typeof (FileReader) != "undefined") {
+                  var dvPreview = $(".images");
+                  dvPreview.html("");
+                  var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                  $($(this)[0].files).each(function () {
+                      var file = $(this);
+                      if (regex.test(file[0].name.toLowerCase())) {
+                          var reader = new FileReader();
+                          reader.onload = function (e) {
+                              var img = $("<img />");
+                              img.attr("name",file[0].name);
+                              img.attr("id","multi");
+                              img.attr("style", "width:50px; height:50px; margin-right: 10px;margin-top: 10px;");
+                              img.attr("src", e.target.result);
+                              
+                              dvPreview.append(img);
+                            
+                          }
+                          reader.readAsDataURL(file[0]);
+                      } else {
+                          alert(file[0].name + " is not a valid image file.");
+                          dvPreview.html("");
+                          return false;
+                      }
+                  });
+              } else {
+                  alert("This browser does not support HTML5 FileReader.");
+              }
+		});
+}); 
+
+
+
+/* 회원가입 */
+$(function() {
+         $("#register-submit").on("click" , function() {
+            
+            var id = $("input[id='id']").val();
+            var pw = $("input[id='pw']").val();
+            var name = $("input[id='name']").val();
+            var email = $("input[id='email']").val();
+            var ph = $("input[id='ph']").val();
+            
+            
+            if(id == null || id.length<5){
+               var id = document.getElementById('id');
+               var idms = document.getElementById('idfeedback');
+               if(id.value.length < 5){
+                  $('#idfeedback').attr("style","margin-top:5px;color:#F15F5F;font-size:5px");
+                  idms.textContent='아이디를 5자 이상 입력해주세요';
+               }else{
+                  idms.textContent='';
+               }
+               return false;
+            }
+            
+            if(pw == null || pw.length<8){
+               var pw = document.getElementById('pw');
+               var pwms = document.getElementById('pwfeedback');
+               if(pw.value.length < 8){
+                  $('#pwfeedback').attr("style","margin-top:5px;color:#F15F5F;font-size:5px");
+                  pwms.textContent='패스워드를 8자 이상 입력해 주세요';
+               }else{
+                  pwms.textContent='';
+               }
+               return false;
+            }
+            
+            if(name == null || name.length<2){
+               var nmfeedback = document.getElementById('nmfeedback'); 
+               var nmcheck = document.getElementById('name');
+               if(nmcheck.value.length < 2 ){
+                  $('#nmfeedback').attr("style","margin-top:5px;color:#F15F5F;font-size:5px");
+                  nmfeedback.textContent = '이름을 잘못 입력하셨습니다';
+               }else{
+                  nmfeedback.textContent = '';
+               }
+               return false;
+            }
+                        
+            if(email == null ||  email.length<8){
+               var email = document.getElementById('email');
+               var emailms = document.getElementById('emfeedback');
+               if(email.value.length < 5){
+                  $('#emfeedback').attr("style","margin-top:5px;color:#F15F5F;font-size:5px");
+                  emailms.textContent='이메일을 다시 입력해주세요';
+               }else{
+                  emailms.textContent='';
+               }
+               
+               return false;
+            }
+            
+            if(ph == null || ph.length<10){
+               var ph = document.getElementById('ph');
+               var phms = document.getElementById('phfeedback');
+               if(ph.value.length < 10){
+                  $('#phfeedback').attr("style","margin-top:5px;color:#F15F5F;font-size:5px");
+                  phms.textContent='핸드폰 번호를  다시 입력해주세요';
+               }else{
+                  phms.textContent='';
+               }
+               return false;
+            }
+            
+            fncJsonAddMember();
+         });
+});
+      
+function fncJsonAddMember(){
+      $.ajax({
+         type:"POST",
+         async: false,
+         headers : {
+            "Accept" : "application/json",
+            "Content-Type" : "application/json"
+         },
+         data: JSON.stringify({
+            memberId:$("#id").val(),
+            memberPwd:$("#pw").val(),
+            memberName:$("#name").val(),
+            email:$("#email").val(),
+            handphone:$("#ph").val(),
+            oriImgName : $("#multi").attr('name')
+         }),
+         url:"/member/jsonAddMember",
+         dataType:"json",
+         success:function(data){
+            if(data.member != null){
+               alert("회원가입이 완료되었습니다. 로그인 해주세요.");
+               addMemberSucess = true;
+               location.href = "index.html";
+            }else{
+               addMemberSucess = false;
+               alert("가입 실패");
+            }
+         }
+      });
+}
+
+/* 사진 업로드  */
+$(function() {
+   $('#fileupload').fileupload({
+        dataType: 'json',
+        url:'/member/upload',
+        add: function (e, data) {
+           $("#register-submit").click(function () {
+                if(addMemberSucess){
+                	console.log("upload image....")
+                	data.formData = {memberId:$("#id").val()};
+        			data.submit();
+                }else{
+                }
+                
+            });
+        }
+    });
+});
+
+/* 로그인 */
+$(function() {
+          $("#login-submit").on("click" , function() {
+             jsonLogin();
+         });
+      });
+      
+function jsonLogin(){
+         $.ajax({
+            type:"POST",
+            async: false,
+            headers : {
+               "Accept" : "application/json",
+               "Content-Type" : "application/json"
+            },
+            data: JSON.stringify({
+               memberId : $("#logid").val(),
+               memberPwd: $("#logpassword").val()
+            }),
+            url:"/member/jsonLogin",
+            dataType:"json",
+            success:function(data){
+               if(data.member!=null){
+                  /* $("#login-form").attr("action", "sharemap.html"); */
+                   alert("성공");
+                   location.href = "sharemap.html";
+               
+               }else{
+                  alert("ID 또는 Password를 확인해주세요.");
+                  $("#login-form").on("submit", function(event){
+                     event.preventDefault();
+                  })
+               }
+            }
+         });
+}
+</script>
+    
+    
+    
+</body>
+</html>

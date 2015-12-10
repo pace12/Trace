@@ -1,0 +1,14 @@
+.media,.childmedia,.childmedia2,.media-body{overflow:hidden;zoom:1}
+.media,.childmedia,.childmedia2,.media .media{margin-top:15px}
+.media:first-child,.childmedia:first-child,.childmedia2:first-child{margin-top:0}
+.media-object{display:block}.media-heading{margin:0 0 5px}
+.media>.pull-left{margin-right:10px}
+.media>.pull-right{margin-left:10px}
+
+.childmedia>.pull-left{margin-right:10px}
+.childmedia>.pull-right{margin-left:10px}
+
+.childmedia2>.pull-left{margin-right:10px}
+.childmedia2>.pull-right{margin-left:10px}
+
+.media-list{padding-left:0;list-style:none}

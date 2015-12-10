@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/main.css">
+		<link href="css/googlemap.css" rel="stylesheet" type="text/css">
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+        
+        
+<style>
+
+    html,body{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        }
+    
+    #map{
+    margin-top: 5px;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    
+        html,body{
+    background-color:#F6F6F6;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        /* overflow: hidden; */
+        }
+    
+    section{
+    overflow: hidden;
+    }
+    
+    aside{
+    position:relative;
+    margin-top:20px;
+    
+    width: 100%;
+    height: 100%;
+    
+    }
+    
+    .col-xs-6{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right:1.5%;
+    margin-left:1.5%;
+    
+    position: relative;
+    border: 3px solid #fff;
+    text-align:justify;
+    display: inline;
+    float:left;
+    padding:0px;
+	cursor: pointer;
+	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    
+    .col-xs-6:hover, #map:hover{
+    
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    
+    .col-xs-6 img{
+
+    float:left;
+    margin:0;
+    }
+    
+    .caption{
+    position: relative;
+    
+    text-align: center;
+    } 
+    
+    footer{
+    background-color: #EBE8FF;
+    margin-bottom: 0;
+    margin-left:0;
+    margin-right:0;
+    }
+    
+    .btn btn-primary{
+    position: relative;
+    width:100%;
+    }
+    
+	@media all and (max-width:299px) {
+    h2{
+    margin-top:2px;
+    font-size: 12px;   
+    color: purple;
+    }
+    
+    .col-xs-6{
+   	width:30%;
+   	height: auto;
+    }
+    
+    .col-xs-6 img{
+    
+    height: 70px;
+    }
+    }
+    
+    @media all and (min-width:300px) and (max-width:600px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: maroon;
+    }
+    
+    .col-xs-6{
+   	width:22%;
+   	height: auto;
+    }
+    .col-xs-6 img{
+    height: 90px;
+    }
+    }
+    
+    @media all and (min-width:601px) and (max-width:768px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: gray;
+    }
+    
+    .col-xs-6{
+   	width:22%;
+    }
+    .col-xs-6 img{
+    height: 130px;
+    }
+    }
+    
+    @media all and (min-width:769px) and (max-width:992px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: red;
+    }
+    
+    .col-xs-6{
+   	width:17%;
+    }
+    
+    .col-xs-6 img{
+    height: 150px;
+    }
+    }
+    
+    @media all and (min-width:993px) and (max-width:1200px) {
+    h2{
+    margin-top:2px;
+    font-size: 20px;   
+    color: blue;
+    }
+    
+    .col-xs-6{
+   	width:16.5%;
+   	
+    }
+    .col-xs-6 img{
+    height: 160px;
+    }
+    }
+    
+    @media all and (min-width:1201px) {
+    h2{
+    margin-top:2px;
+    font-size: 25px;  
+    color: green;
+    }
+    
+    .col-xs-6{
+   	width:13.5%;
+    }
+    
+    .col-xs-6 img{
+    height: 180px;
+    }
+    }
+    
+    
+     
+
+</style>
+
+
+</head>
+
+<body>
+
+        <!--[if lte IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+        <header role="banner">
+            <nav role="navigation" class="navbar navbar-default">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Bootstrappin'" width="120"></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">
+                        <span class="fa fa-home"></span> Home
+                    </a></li>
+                    <li><a href="write.html">
+                        <span class="fa fa-pencil-square-o"></span> Write
+                    </a></li>
+                     <li><a href="gallery.html">
+                        <span class="fa fa-picture-o"></span> Gallery
+                    </a></li>
+                    <li><a href="#">
+                        <span class="fa fa-envelope"></span> Contact
+                    </a></li>
+                  </ul>
+                    <ul class="nav navbar-nav navbar-right" clear="both">
+
+        <li><a href="#"><span class="fa fa-sign-in"></span> Register</a></li>
+          <li><a href="#" id="myBtn"><span class="fa fa-power-off"></span> Logout</a></li>
+                </div><!--/.nav-collapse -->
+              </div><!--/.container -->
+            </nav>
+        </header>
+            
+            <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+    		<div id="map"></div>  
+                
+          <main role="main">
+            
+    <aside id="list" >           
+          
+         <div class="col-xs-12"> 
+            
+            <div class="row">
+            
+                <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" >
+                    <img src="" width="100%" height="225px" id="gallery2"/>
+                    <!-- 이미지 결로 통일   C:/workspace/Trace1207AF/WebContent/traceupload/ -->
+                    <div class="caption"><br>선용원</div>
+                </div>
+            
+            </div>
+            
+        </div>
+        
+  </aside>
+            
+        </main>
+       
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script> 
+        <script id="template" type="text/x-handlebars-template"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?signed_in=false&libraries=places,drawing&callback=initMap"></script>
+    	<script src="js/googlemap.js" type="text/javascript"></script>
+    	<script> google.maps.event.addDomListener(window, 'load', initialize);</script>
+        <script type="text/javascript">
+
+ 
+
+
+         
+        $(function() {
+        	 $.getJSON('/trace/listTrace', function(data){
+                    
+                 console.log(data);
+                	$("#gallery2").attr("src","img/"+data.list[0].oriImgName);
+              });         
+              
+          });   
+         
+         </script> 
+    
+            
+            
+</body>
+</html>

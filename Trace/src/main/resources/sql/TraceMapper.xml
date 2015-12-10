@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="TraceMapper">
+	<resultMap id="traceSelectMap" type="trace">
+		<result property="traceNo"    			column="trace_no" 		jdbcType="INTEGER"/>
+		<result property="traceId"    			column="id" 			jdbcType="VARCHAR"/>
+		<result property="latitude"    		    column="latitude" 		jdbcType="VARCHAR"/>
+		<result property="longtitude"    		column="longtitude" 	jdbcType="VARCHAR"/>
+		<result property="tracedate"    		column="trace_date" 	jdbcType="DATE"/>
+		<result property="text"    				column="text" 			jdbcType="CLOB"/>
+		<result property="likes"    			column="likes" 			jdbcType="INTEGER"/>
+		<result property="oriImgName" 			column="original_img_name" jdbcType="VARCHAR"/>
+		<result property="stoImgName" 			column="stored_img_name" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+   <insert id="jsonAddTrace" parameterType="trace">
+   	<selectKey keyProperty="traceNo" resultType="int" order="BEFORE">
+   		SELECT seq_trace_trace_no.nextval FROM dual
+   	</selectKey>
+   INSERT
+   INTO trace(trace_no, id, latitude, longtitude, trace_date, text, likes, 
+   original_img_name, stored_img_name)
+   
+   VALUES (  #{traceNo},
+             #{traceId}, 
+             #{latitude},
+             #{longtitude},
+              SYSDATE, 
+             #{text:VARCHAR},
+             #{likes:NUMERIC},
+             #{oriImgName},
+             'aaa.jpg')
+   </insert>
+   
+   <select id="getTraceList" parameterType="map" resultMap="traceSelectMap">
+	SELECT
+
+	trace_no, original_img_name, likes , id ,stored_img_name		
+
+	FROM trace
+	WHERE id = #{value}
+   </select>
+
+   <update id="updateTrace" parameterType="trace">
+   	UPDATE trace
+   	<set>
+   		<if test="traceId != null">id=#{traceId},</if>
+   		<if test="latitude != null">latitude=#{latitude},</if>
+   		<if test="longtitude != null">longtitude=#{longtitude},</if>
+   		<if test="tracedate != null">trace_date=#{tracedate},</if>
+   		<if test="text != null">text=#{text},</if>
+   		<if test="likes != null">likes=#{likes},</if>
+   		<if test="oriImgName != null">original_img_name=#{oriImgName},</if>
+   		<if test="stoImgName != null">stored_img_name=#{stoImgName}</if>
+   	</set>
+   	WHERE trace_no = #{traceNo}
+   	
+   </update> 
+</mapper>

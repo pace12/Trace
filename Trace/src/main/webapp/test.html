@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Main Style Sheet -->
+         <link rel="stylesheet" href="css/main.css">
+         <link rel="stylesheet" href="css/media.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        
+        <style>
+body{
+background-color: #fff;
+}
+
+  input[type="file"] {  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+ .w3-btn {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 6px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    transition: .2s ease-out;
+    cursor: pointer;
+    white-space: nowrap;
+   
+}   
+
+a.w3-btn:hover, a.w3-btn:active {
+    background-color: #2A5577;
+    color: #FFFFFF;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+a.w3-btn, a.w3-btn:link, a.w3-btn:visited {
+    color: #FFFFFF;
+    background-color: #5FB6F9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+
+textarea{
+   float:left;
+}
+
+.media-left, .media>.pull-left, .childmedia>.pull-left, .childmedia2>.pull-left{
+    padding-right: 10px;
+
+}
+
+.media-body, .media-left, .media-right {
+    display: table-cell;
+    vertical-align: top;
+}
+/* //////////////////// */
+.media-right, .media>.pull-right, .childmedia>.pull-right, .childmedia2>.pull-right {
+    padding-left: 10px;
+}
+
+.media-body {
+    width: 500px;
+    overflow: hidden;
+}
+
+.media-body #temp{
+   overflow: hidden;
+}
+
+#ee, #dd, #dddd{
+float: right;
+cursor: pointer;
+vertical-align: top;
+
+}
+
+#ee{
+margin-left: 5px;
+}
+
+p1{
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+        
+</style>
+
+</head>
+<body>
+    
+ <!--[if lte IE 7]>
+ <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+ <![endif]-->
+
+
+<!--////////////////////////////////////////////////////////////내비게이션바///////////////////////////////////////////////////////////-->
+<!--////////////////////////////////////////////////////////////내비게이션바///////////////////////////////////////////////////////////-->
+        
+        
+            
+            
+<!--////////////////////////////////////////////////////////////텍스트에디터///////////////////////////////////////////////////////////-->
+<!--////////////////////////////////////////////////////////////텍스트에디터///////////////////////////////////////////////////////////-->            
+            
+   
+        <form method="post" enctype="multipart/form-data" onsubmit="return false;">
+        
+        <div class="commentTable">
+
+       <!-- <div class="media">
+           <div class="media-left">
+             <a href="#">
+                  <img class="media-object" src="img/seon111.jpg" alt="..." width="45px" height="45px">
+             </a>
+           </div>
+           <div class="media-body">
+          <p1 class="media-heading">Media heading<p3 id="ee" >삭제</p3><p4 id="dd">답글달기</p4></p1>
+          <p2>Cras sit amet n turpis. Fusce conins.</p2>
+           </div>
+           <div class="media-right">
+           답글달기   삭제
+           </div>
+      </div>  -->
+      
+      </div>
+        
+        <div>  
+          <textarea id="texteditor" style="width: 70%;" rows="2"></textarea>
+        </div>
+        
+        <div> 
+          <a target="_blank" class="w3-btn" id="create" >등록</a>
+        </div>
+       
+         </form>
+  
+        
+        
+
+<!--////////////////////////////////////////////////////////////자바스크립트///////////////////////////////////////////////////////////-->
+<!--////////////////////////////////////////////////////////////자바스크립트///////////////////////////////////////////////////////////-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/vendor/jquery.ui.widget.js"></script>      
+        <script src="js/jquery.fileupload.js"></script>
+		<script type="text/javascript">
+	
+		$("#create").on("click", function() {
+			var pText = $("#texteditor").val();
+            var comment = "<div class='abab'>"+
+                  		  "<div class='media'>"+
+              			  "<div class='media-left'>"+
+             			  "<a href='#'>"+
+               			  "<img class='media-object' src='img/seon111.jpg' alt='4545' width='45px' height='45px'>"+
+             			  "</a>"+
+              			  "</div>"+
+              			  "<div class='media-body'>"+
+             			  "<p1 class='media-heading'>"+'user01'+
+             			  "<a id='ee' >삭제</a><a id='dd'>답글달기</a></p1>"+
+             			  "<p2 id='temp'>"+pText+"</p2>"+
+              			  "</div>"+
+              		  	  "</div>"+
+              			  "</div>";
+           
+            var test1 = $("div.commentTable > div.media").length;
+            alert(test1);
+            
+            if($("div.commentTable > div.media").length == 0){
+                    $('div.commentTable').append(comment);
+            }else{
+            /* var test1 = $("div.commentTable > div.parcomment").html();
+            alert(test1); */
+                   
+            	$('div.commentTable > div:last').after(comment);
+                var test2 = $("div.commentTable > div.media:last").html();
+                console.log(test2);
+            }
+            
+            $("#texteditor").val("");
+      });
+            
+            
+            ///////////////////////////////////////////
+            $(document).on("click", "#dd", function() {
+               
+               /* $("#texteditor").remove(); */
+               $("#texteditor").css('display','none');
+               $("#create").attr("style","display:none");
+               /* $("#create").remove(); */
+               
+               alert("오냐");
+               
+               var parent = $(this).parent().parent().parent();
+               
+               alert(parent);
+               
+               var textarea = "<div class='commtextarea'>"+
+               "<div>"+ 
+                "<textarea id='commtexteditor' style='width: 70%; margin-left: 40px;' rows='2'></textarea>"+
+                "<div>"+ 
+                "<a target='_blank' class='w3-btn' id='commcreate' >"+'등록'+"</a>"+
+                 "</div>"+
+                "</div>"+
+                "</br>"+
+                "</br>"+
+                "</div>"
+                
+                parent.after(textarea);
+            
+            });
+            
+            
+            
+            $(document).on("click", "#commcreate", function() {
+               
+               alert("오라고샹놈새키야");
+               
+               var good = $(this).parent().parent().parent().prev();
+                alert(good);
+                
+                /* var good2 = $(this).parent().parent().parent().prev().parent().html();
+                alert(good2); */
+               
+               var pText = $("#commtexteditor").val();
+               
+               $(".commtextarea").remove();
+               
+                  var comment = "<div class='cdcd' style='margin-left:40px;'>"+
+                  "<div class='childmedia'>"+
+              "<div class='media-left'>"+
+             "<a href='#'>"+
+               "<img class='media-object' src='img/seul.jpg' alt='4545' width='45px' height='45px'>"+
+             "</a>"+
+              "</div>"+
+              "<div class='media-body'>"+
+             "<p1 class='media-heading'>"+'user77'+
+             "<a id='ee' >삭제</a><a id='dddd'>답글달기</a></p1>"+
+             "<p2 id='temp'>"+pText+"</p2>"+
+              "</div>"+
+              "</div>"
+              
+              /* var ssss = $("div.cdcd > div.childmedia").length;
+              var ssss = $(this).parent().parent().parent().prev().html(); 
+                  alert(ssss);
+                  
+               if($("div.commentTable > div.childmedia").length == 0){
+                  good.append(comment);
+                  alert("차일드오냐???????????????????????");
+               }else{
+                  $($(this).parent().parent().parent().prev()+" > div.childmedia:last").after(comment);
+                  alert("차일드오냐?");
+                  var test3 = $("div.commentTable > div.childmedia:last").html();
+                   console.log(test3);
+               } */
+              
+             good.append(comment);
+               
+              // here
+               $("#texteditor").css('display','block');
+               $("#create").removeAttr("style","display:none");
+            
+            });
+            
+     ///////////////////////////댓글의 댓글의 댓글//////////////////////////////////////
+                $(document).on("click", "#dddd", function(){
+               
+               $("#texteditor").css('display','none');
+               $("#create").attr("style","display:none");
+               
+               var parent2 = $(this).parent().parent().parent();
+               
+               var textarea = "<div class='commtextarea'>"+
+               "<div>"+ 
+                "<textarea id='commtexteditor' style='width: 70%; margin-left: 40px;' rows='2'></textarea>"+
+                "<div>"+ 
+                "<a target='_blank' class='w3-btn' id='commcreate2' >"+'등록'+"</a>"+
+                 "</div>"+
+                "</div>"+
+                "</br>"+
+                "</br>"+
+                "</div>"
+                
+                parent2.after(textarea);
+                
+            });
+     
+         $(document).on("click", "#commcreate2", function() {
+               
+               alert("와라바시");
+               
+               var good2 = $(this).parent().parent().parent().prev();
+                alert(good2);
+                
+                /* var good2 = $(this).parent().parent().parent().prev().parent().html();
+                alert(good2);  */
+               
+               var pText = $("#commtexteditor").val();
+               
+               $(".commtextarea").remove();
+               
+                  var comment = "<div class='childmedia2' style='margin-left:40px;'>"+
+              "<div class='media-left'>"+
+             "<a href='#'>"+
+               "<img class='media-object' src='img/seon111.jpg' alt='4545' width='45px' height='45px'>"+
+             "</a>"+
+              "</div>"+
+              "<div class='media-body'>"+
+             "<p1 class='media-heading'>"+'user77'+
+             "<a id='ee' >삭제</a><a id='dddd'>답글달기</a></p1>"+
+             "<p2 id='temp'>user77"+pText+"</p2>"+
+              "</div>"+
+              "</div>"
+              
+              /* var ssss = $("div.commentTable > div.childmedia2").length;
+                  alert(ssss);
+                  
+               if($("div.commentTable > div.childmedia2").length == 0){
+                  good.after(comment);
+                  alert("차일드오냐???????????????????????");
+               }else{
+                  $("div.commentTable > div.childmedia2:last").after(comment);
+                  alert("차일드오냐?");
+                  var test3 = $("div.commentTable > div.childmedia2:last").html();
+                   console.log(test3);
+               } */
+              
+              good2.append(comment);
+               
+              
+               $("#texteditor").css('display','block');
+               $("#create").removeAttr("style","display:none");
+            
+            });
+            
+            
+         </script>
+        
+    </body>
+</html>
